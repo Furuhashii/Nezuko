@@ -18,29 +18,29 @@ from userbot.events import register
 
 # ========================= CONSTANTS ============================
 AFKSTR = [
-    "I'm busy right now. Please talk in a bag and when I come back you can just give me the bag!",
-    "I'm away right now. If you need anything, leave a message after the beep:\n`beeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeep`!",
-    "You missed me, next time aim better.",
-    "I'll be back in a few minutes and if I'm not...,\nwait longer.",
-    "I'm not here right now, so I'm probably somewhere else.",
-    "Roses are red,\nViolets are blue,\nLeave me a message,\nAnd I'll get back to you.",
-    "Sometimes the best things in life are worth waiting for…\nI'll be right back.",
-    "I'll be right back,\nbut if I'm not right back,\nI'll be back later.",
-    "If you haven't figured it out already,\nI'm not here.",
+    "Aku sibuk. Tolong tinggalkan pesan secara pribadi dan ketika saya kembali saya akan membalas pesan anda!",
+    "Saya pergi sekarang. Jika Anda butuh sesuatu, tinggalkan pesan setelah bunyi beep:\n`beeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeep`!",
+    "Anda merindukan saya, lain kali cari waktu lebih baik.",
+    "Saya akan kembali dalam beberapa menit dan jika tidak...,\ntunggu lebih lama.",
+    "Saya tidak di sini sekarang, jadi saya mungkin di tempat lain.",
+    "Bunga mawar itu berwarna merah,\nBunga violet berwarna biru,\nTinggalkan pesan untukku,\nDan aku akan kembali padamu.",
+    "Terkadang hal terbaik dalam hidup layak untuk ditunggu…\naku akan segera kembali.",
+    "Aku akan segera kembali,\ntapi jika aku tidak segera kembali,\nSaya akan kembali lagi nanti.",
+    "Jika kamu belum mengetahuinya,\nAku tidak di sini.",
     "Hello, welcome to my away message, how may I ignore you today?",
     "I'm away over 7 seas and 7 countries,\n7 waters and 7 continents,\n7 mountains and 7 hills,\n7 plains and 7 mounds,\n7 pools and 7 lakes,\n7 springs and 7 meadows,\n7 cities and 7 neighborhoods,\n7 blocks and 7 houses...\n\nWhere not even your messages can reach me!",
-    "I'm away from the keyboard at the moment, but if you'll scream loud enough at your screen, I might just hear you.",
+    "Saya sedang tidak menggunakan keyboard saat ini, tetapi jika Anda akan berteriak cukup keras, saya mungkin akan mendengar Anda.",
     "I went that way\n---->",
     "I went this way\n<----",
-    "Please leave a message and make me feel even more important than I already am.",
-    "I am not here so stop writing to me,\nor else you will find yourself with a screen full of your own messages.",
-    "If I were here,\nI'd tell you where I am.\n\nBut I'm not,\nso ask me when I return...",
-    "I am away!\nI don't know when I'll be back!\nHopefully a few minutes from now!",
-    "I'm not available right now so please leave your name, number, and address and I will stalk you later.",
-    "Sorry, I'm not here right now.\nFeel free to talk to my userbot as long as you like.\nI'll get back to you later.",
-    "I bet you were expecting an away message!",
-    "Life is so short, there are so many things to do...\nI'm away doing one of them..",
-    "I am not here right now...\nbut if I was...\n\nwouldn't that be awesome?",
+    "Tolong tinggalkan pesan dan buat saya merasa lebih penting daripada sebelumnya.",
+    "Saya tidak disini jadi berhentilah menulis kepada saya,\natau anda juga tidak akan menemukan saya meskipun layar anda penuh tulisan.",
+    "Jika saya ada di sini,\nAku akan memberitahumu dimana aku berada.\n\nTapi saya tidak,\njadi tanya saya kapan saya kembali...",
+    "Saya Offline!\nSaya tidak tahu kapan saya akan kembali!\nSemoga beberapa menit dari sekarang!",
+    "Saya tidak ada saat ini, jadi silakan tinggalkan nama, nomor, dan alamat Anda dan saya akan menemui Anda nanti.",
+    "Maaf, saya tidak di sini sekarang.\nJangan ragu untuk berbicara dengan userbot saya selama Anda mau.\nSaya akan menghubungi Anda lagi nanti.",
+    "Saya yakin Anda mengharapkan pesan terbalas!\nNamun saya sedang Offline",
+    "Hidup ini sangat singkat, begitu banyak yang harus dilakukan...\nSaya akan melakukan salah satunya..",
+    "Saya tidak di sini sekarang...\ntetapi jika saya...\n\nbukankah itu luar biasa?",
 ]
 
 global USER_AFK  # pylint:disable=E0602
@@ -71,12 +71,12 @@ async def set_afk(afk_e):
     afk_start = start_1.replace(microsecond=0)
     if string:
         AFKREASON = string
-        await afk_e.edit(f"Going AFK!\
-        \nReason: `{string}`")
+        await afk_e.edit(f"Saya akan Offline\
+        \nKarena: `{string}`")
     else:
-        await afk_e.edit("Going AFK!")
+        await afk_e.edit("Saya akan Offline")
     if BOTLOG:
-        await afk_e.client.send_message(BOTLOG_CHATID, "#AFK\nYou went AFK!")
+        await afk_e.client.send_message(BOTLOG_CHATID, "#OFFLINE\nNezuko-bot akan menggantikan anda")
     ISAFK = True
     afk_time = datetime.now()  # pylint:disable=E0602
     raise StopPropagation
@@ -97,14 +97,14 @@ async def type_afk_is_not_true(notafk):
     afk_end = back_alive.replace(microsecond=0)
     if ISAFK:
         ISAFK = False
-        msg = await notafk.respond("I'm no longer AFK.")
+        msg = await notafk.respond("Saya tidak lagi AFK.")
         time.sleep(3)
         await msg.delete()
         if BOTLOG:
             await notafk.client.send_message(
                 BOTLOG_CHATID,
-                "You've recieved " + str(COUNT_MSG) + " messages from " +
-                str(len(USERS)) + " chats while you were away",
+                "Anda telah menerima " + str(COUNT_MSG) + " pesan dari " +
+                str(len(USERS)) + " obrolan saat Anda pergi",
             )
             for i in USERS:
                 name = await notafk.client.get_entity(i)
@@ -112,7 +112,7 @@ async def type_afk_is_not_true(notafk):
                 await notafk.client.send_message(
                     BOTLOG_CHATID,
                     "[" + name0 + "](tg://user?id=" + str(i) + ")" +
-                    " sent you " + "`" + str(USERS[i]) + " messages`",
+                    " telah mengirimmu " + "`" + str(USERS[i]) + " pesan`",
                 )
         COUNT_MSG = 0
         USERS = {}
@@ -145,7 +145,7 @@ async def mention_afk(mention):
             time %= 60
             seconds = time
             if days == 1:
-                afk_since = "Yesterday"
+                afk_since = "Kemarin"
             elif days > 1:
                 if days > 6:
                     date = now + \
@@ -156,15 +156,15 @@ async def mention_afk(mention):
                     wday = now + datetime.timedelta(days=-days)
                     afk_since = wday.strftime('%A')
             elif hours > 1:
-                afk_since = f"`{int(hours)}h{int(minutes)}m` ago"
+                afk_since = f"`{int(hours)}h{int(minutes)}m` yang lalu"
             elif minutes > 0:
-                afk_since = f"`{int(minutes)}m{int(seconds)}s` ago"
+                afk_since = f"`{int(minutes)}m{int(seconds)}s` yang lalu"
             else:
-                afk_since = f"`{int(seconds)}s` ago"
+                afk_since = f"`{int(seconds)}s` yang lalu"
             if mention.sender_id not in USERS:
                 if AFKREASON:
-                    await mention.reply(f"I'm AFK since {afk_since}.\
-                        \nReason: `{AFKREASON}`")
+                    await mention.reply(f"Saya masih AFK sejak itu {afk_since}.\
+                        \nKarena: `{AFKREASON}`")
                 else:
                     await mention.reply(str(choice(AFKSTR)))
                 USERS.update({mention.sender_id: 1})
@@ -172,8 +172,8 @@ async def mention_afk(mention):
             elif mention.sender_id in USERS:
                 if USERS[mention.sender_id] % randint(2, 4) == 0:
                     if AFKREASON:
-                        await mention.reply(f"I'm still AFK since {afk_since}.\
-                            \nReason: `{AFKREASON}`")
+                        await mention.reply(f"Saya masih AFK sejak itu {afk_since}.\
+                            \nKarena: `{AFKREASON}`")
                     else:
                         await mention.reply(str(choice(AFKSTR)))
                     USERS[mention.sender_id] = USERS[mention.sender_id] + 1
@@ -261,8 +261,8 @@ async def afk_on_pm(sender):
 
 CMD_HELP.update({
     "afk":
-    ".afk [Optional Reason]\
-\nUsage: Sets you as afk.\nReplies to anyone who tags/PM's \
-you telling them that you are AFK(reason).\n\nSwitches off AFK when you type back anything, anywhere.\
+    ".afk [Alasan Opsional]\
+\nUsage: Menetapkan anda sebagai afk.\nBalasan untuk siapa saja yang menandai/PM \
+Anda memberi tahu mereka bahwa Anda AFK (alasan).\n\nMematikan AFK saat Anda mengetik apa pun, di mana pun.\
 "
 })
