@@ -16,17 +16,17 @@
   "env": {
     "API_KEY": {
       "description": "Get this value from my.telegram.org.",
-      "value": "mohon diisi"
+      "value": "mohon diisi",
       "required": true
     },
     "API_HASH": {
       "description": "Get this value from my.telegram.org.",
-      "value": "mohon diisi"
+      "value": "mohon diisi",
       "required": true
     },
     "STRING_SESSION": {
       "description": "Get this value by running [python3 string_session.py] in Termux or local system.",
-      "value": "mohon diisi"
+      "value": "mohon diisi",
       "required": true
     },
     "HEROKU_MEMEZ": {
