@@ -48,7 +48,7 @@
     },
     "GIT_REPO_NAME": {
       "description": "Add the GIT_REPO_NAME here. It helps with commit on GitHub.",
-      "value": "mohon diisi"
+      "value": "mohon diisi",
       "required": false
     },
     "UPSTREAM_REPO_URL": {
