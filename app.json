@@ -16,14 +16,17 @@
   "env": {
     "API_KEY": {
       "description": "Get this value from my.telegram.org.",
+      "value": "mohon diisi"
       "required": true
     },
     "API_HASH": {
       "description": "Get this value from my.telegram.org.",
+      "value": "mohon diisi"
       "required": true
     },
     "STRING_SESSION": {
       "description": "Get this value by running [python3 string_session.py] in Termux or local system.",
+      "value": "mohon diisi"
       "required": true
     },
     "HEROKU_MEMEZ": {
@@ -33,7 +36,7 @@
     },
     "HEROKU_API_KEY": {
       "description": "Your Heroku API key, get it from 'https://dashboard.heroku.com/account'",
-      "value": ""
+      "value": "mohon diisi"
     },
     "HEROKU_APP_NAME": {
       "description": "Add the Heroku app name here. It helps with userbot updates.",
@@ -41,10 +44,11 @@
     },
     "GITHUB_ACCESS_TOKEN": {
       "description": "Your GITHUB_ACCESS_TOKEN, get it from 'https://github.com/settings/tokens'",
-      "value": ""
+      "value": "mohon diisi"
     },
     "GIT_REPO_NAME": {
       "description": "Add the GIT_REPO_NAME here. It helps with commit on GitHub.",
+      "value": "mohon diisi"
       "required": false
     },
     "UPSTREAM_REPO_URL": {
@@ -89,7 +93,7 @@
     },
     "BOTLOG": {
       "description": "Incase you want to turn off logging, put this to false",
-      "value": "False"
+      "value": "True"
     },
     "BOTLOG_CHATID": {
       "description": "ChatID of the Log group. Set it to '0' if BOTLOG = False and/or if LOGSPAMMER = False.",
